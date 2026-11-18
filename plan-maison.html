@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan de la maison</title>
+<style>
+  :root { --bg:#faf8f4; --ink:#222; --mute:#6b6760; --wall:#2b2b2b; --room:#fff; --day:#fdf3e2; --day2:#fbe7c6; --night:#e8eef8; --wet:#e3f3ee; --garage:#ecebe7; --out:#f1eee7; --win:#2f7fd8; --door:#c2581f; --line:#d9d4ca; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#1b1a18; --ink:#eee; --mute:#a7a29a; --wall:#e9e6e0; --room:#26241f; --day:#3a3122; --day2:#4a3b22; --night:#232c3a; --wet:#1f3530; --garage:#2e2d2a; --out:#22211e; --win:#6fb0ff; --door:#f08a4b; --line:#3b3934; } }
+  :root[data-theme="dark"] { --bg:#1b1a18; --ink:#eee; --mute:#a7a29a; --wall:#e9e6e0; --room:#26241f; --day:#3a3122; --day2:#4a3b22; --night:#232c3a; --wet:#1f3530; --garage:#2e2d2a; --out:#22211e; --win:#6fb0ff; --door:#f08a4b; --line:#3b3934; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  h2 { font-size:16px; margin:0 0 8px; }
+  .sub { color:var(--mute); margin:0 0 16px; }
+  .note { border-left:4px solid var(--win); padding:8px 12px; background:var(--room); margin:0 0 20px; }
+  .plans { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-bottom:28px; }
+  .info { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; }
+  @media (max-width:760px){ .plans, .info { grid-template-columns:1fr; } }
+  figure { margin:0; } figcaption { font-weight:600; margin-bottom:6px; }
+  svg { width:100%; height:auto; display:block; }
+  .lbl { font-size:40px; font-weight:600; fill:var(--ink); text-anchor:middle; }
+  .lbl.s { font-size:30px; font-weight:500; }
+  .area { font-size:28px; fill:var(--mute); text-anchor:middle; }
+  rect, polygon { stroke:var(--wall); stroke-width:6; }
+  .day { fill:var(--day); } .day2 { fill:var(--day2); } .room { fill:var(--room); }
+  .night { fill:var(--night); } .wet { fill:var(--wet); } .garage { fill:var(--garage); }
+  .closet { fill:none; stroke-dasharray:14 10; stroke-width:4; }
+  .outside { fill:var(--out); stroke:var(--mute); stroke-dasharray:16 10; stroke-width:4; }
+  .post { fill:var(--wall); stroke:none; }
+  .vs { fill:var(--out); stroke:none; }
+  .stair { fill:var(--room); stroke-width:4; } .step { stroke:var(--mute); stroke-width:3; }
+  .ext { fill:none; stroke-width:20; stroke-linejoin:miter; }
+  .ext.dash { stroke-width:8; stroke-dasharray:24 14; stroke:var(--mute); }
+  .ext2 { fill:none; stroke-width:20; }
+  .gap { fill:var(--day); stroke:none; }
+  .win { stroke:var(--win); stroke-width:24; }
+  .pf { stroke:var(--win); stroke-width:24; stroke-dasharray:20 8; }
+  .door, .gdoor { stroke:var(--door); stroke-width:24; }
+  .dim text { font-size:30px; fill:var(--mute); text-anchor:middle; }
+  .dl { stroke:var(--mute); stroke-width:3; }
+  .nord { fill:var(--ink); stroke:none; }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin-bottom:18px; }
+  th, td { text-align:left; padding:5px 6px; border-bottom:1px solid var(--line); }
+  td.n { text-align:right; font-variant-numeric:tabular-nums; }
+  .key { display:inline-block; width:16px; height:5px; vertical-align:middle; margin:0 6px 0 12px; }
+  .legend { font-size:13px; color:var(--mute); margin:0 0 20px; }
+  p.small { font-size:13px; color:var(--mute); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Plan de la maison : La Croix de la Lèche</h1>
+  <p class="sub">Maison à demi-niveaux, Saint-Julien-des-Points. Deux volumes sous toits deux pentes (tuiles romanes, pente 30 %).</p>
+  <p class="note">Redessiné à l'échelle depuis le <strong>permis de construire</strong> (M. et Mme Lesieur) : plans RDC/étage et sous-sol au 1/100, plan de masse, façades, coupe. C'est le projet déposé ; la maison réalisée peut en différer un peu (le DPE compte 82,75 m² habitables contre 85,67 m² au permis).</p>
+
+  <div class="plans">
+    <figure><figcaption>Niveaux habitables (jour +1,27 m, nuit +2,67 m)</figcaption><svg viewBox="-140 -170 1440 1900" role="img"><rect class="outside" x="0" y="1352" width="1035" height="250" /><text class="lbl s" x="520" y="1477">Terrasse</text><text class="area" x="520" y="1511">30,74 m²</text><rect class="outside" x="785" y="675" width="180" height="677" /><rect class="post" x="935" y="1322" width="30" height="30" /><rect class="post" x="935" y="902" width="30" height="30" /><text class="lbl s" x="880" y="1022">Auvent</text><text class="area" x="880" y="1056">12,19 m²</text><rect class="stair" x="1030" y="660" width="120" height="135" /><line class="step" x1="1030" y1="772.5" x2="1150" y2="772.5"/><line class="step" x1="1030" y1="750.0" x2="1150" y2="750.0"/><line class="step" x1="1030" y1="727.5" x2="1150" y2="727.5"/><line class="step" x1="1030" y1="705.0" x2="1150" y2="705.0"/><line class="step" x1="1030" y1="682.5" x2="1150" y2="682.5"/><text class="lbl s" x="1205" y="727">perron</text><rect class="day" x="20" y="675" width="745" height="657" /><polygon class="day2" points="20,987 20,675 427,675 427,842 285,987"/><text class="lbl" x="420" y="1172">Séjour / salon</text><text class="area" x="420" y="1206">33,93 m²</text><text class="lbl" x="210" y="817">Cuisine</text><text class="area" x="210" y="851">10,84 m²</text><rect class="room" x="522" y="675" width="220" height="52" /><text class="lbl s" x="640" y="701">pl.</text><rect class="room" x="113" y="20" width="751" height="615" /><rect class="room" x="260" y="352" width="300" height="283" /><text class="lbl s" x="360" y="402">Dgt</text><text class="area" x="360" y="436">5,42</text><rect class="wet" x="113" y="462" width="217" height="173" /><text class="lbl" x="210" y="549">SdB</text><text class="area" x="210" y="583">4,26 m²</text><rect class="wet" x="113" y="352" width="137" height="100" /><text class="lbl s" x="175" y="402">WC</text><text class="area" x="175" y="436">1,10</text><rect class="stair" x="400" y="462" width="70" height="173" /><line class="step" x1="400" y1="610.2857142857143" x2="470" y2="610.2857142857143"/><line class="step" x1="400" y1="585.5714285714286" x2="470" y2="585.5714285714286"/><line class="step" x1="400" y1="560.8571428571429" x2="470" y2="560.8571428571429"/><line class="step" x1="400" y1="536.1428571428571" x2="470" y2="536.1428571428571"/><line class="step" x1="400" y1="511.42857142857144" x2="470" y2="511.42857142857144"/><line class="step" x1="400" y1="486.7142857142858" x2="470" y2="486.7142857142858"/><rect class="stair" x="470" y="462" width="70" height="173" /><line class="step" x1="470" y1="613.375" x2="540" y2="613.375"/><line class="step" x1="470" y1="591.75" x2="540" y2="591.75"/><line class="step" x1="470" y1="570.125" x2="540" y2="570.125"/><line class="step" x1="470" y1="548.5" x2="540" y2="548.5"/><line class="step" x1="470" y1="526.875" x2="540" y2="526.875"/><line class="step" x1="470" y1="505.25" x2="540" y2="505.25"/><line class="step" x1="470" y1="483.625" x2="540" y2="483.625"/><rect class="night" x="113" y="20" width="317" height="332" /><text class="lbl" x="260" y="186">Chambre 1</text><text class="area" x="260" y="220">9,00 m²</text><rect class="night" x="560" y="352" width="304" height="283" /><text class="lbl" x="700" y="494">Chambre 2</text><text class="area" x="700" y="528">9,00 m²</text><rect class="night" x="430" y="20" width="434" height="332" /><text class="lbl" x="680" y="186">Chambre 3</text><text class="area" x="680" y="220">12,12 m²</text><rect class="closet" x="430" y="20" width="60" height="192" /><polygon class="ext" points="0,1352 0,655 93,655 93,0 884,0 884,655 785,655 785,1352"/><rect class="gap" x="420" y="635" width="125" height="40" /><line class="win" x1="10" y1="901" x2="10" y2="781"/><line class="pf" x1="244" y1="1342" x2="364" y2="1342"/><line class="win" x1="541" y1="1342" x2="641" y2="1342"/><line class="pf" x1="775" y1="1198" x2="775" y2="1078"/><line class="door" x1="775" y1="819" x2="775" y2="729"/><line class="win" x1="103" y1="560" x2="103" y2="500"/><line class="win" x1="103" y1="409" x2="103" y2="369"/><line class="win" x1="103" y1="244" x2="103" y2="124"/><line class="win" x1="874" y1="552" x2="874" y2="432"/><line class="win" x1="874" y1="237" x2="874" y2="117"/><g class="dim"><line class="dl" x1="-90" y1="1352" x2="-90" y2="0"/><text x="-104" y="676" transform="rotate(-90 -104 676)">13,52 m</text><line class="dl" x1="93" y1="-60" x2="884" y2="-60"/><text x="488" y="-74">7,91 m</text><line class="dl" x1="0" y1="1652" x2="697" y2="1652"/><text x="348" y="1692">6,97 m (aile jour)</text></g><g transform="translate(1180,-80)"><polygon points="0,-46 18,12 0,0 -18,12" class="nord"/><text class="lbl" x="0" y="48">N</text></g></svg></figure>
+    <figure><figcaption>Sous-sol (garage) et vide sanitaire</figcaption><svg viewBox="-140 -170 1440 1900" role="img"><rect class="vs" x="0" y="655" width="785" height="697" /><text class="lbl" x="300" y="1004">Vide sanitaire</text><text class="area" x="300" y="1038">h. 1,00 à 1,20 m</text><rect class="garage" x="113" y="20" width="751" height="615" /><text class="lbl" x="330" y="242">Garage</text><text class="area" x="330" y="276">44,83 m²</text><rect class="stair" x="400" y="462" width="70" height="173" /><line class="step" x1="400" y1="610.2857142857143" x2="470" y2="610.2857142857143"/><line class="step" x1="400" y1="585.5714285714286" x2="470" y2="585.5714285714286"/><line class="step" x1="400" y1="560.8571428571429" x2="470" y2="560.8571428571429"/><line class="step" x1="400" y1="536.1428571428571" x2="470" y2="536.1428571428571"/><line class="step" x1="400" y1="511.42857142857144" x2="470" y2="511.42857142857144"/><line class="step" x1="400" y1="486.7142857142858" x2="470" y2="486.7142857142858"/><rect class="stair" x="470" y="462" width="70" height="173" /><line class="step" x1="470" y1="613.375" x2="540" y2="613.375"/><line class="step" x1="470" y1="591.75" x2="540" y2="591.75"/><line class="step" x1="470" y1="570.125" x2="540" y2="570.125"/><line class="step" x1="470" y1="548.5" x2="540" y2="548.5"/><line class="step" x1="470" y1="526.875" x2="540" y2="526.875"/><line class="step" x1="470" y1="505.25" x2="540" y2="505.25"/><line class="step" x1="470" y1="483.625" x2="540" y2="483.625"/><text class="lbl s" x="700" y="549">escalier</text><polygon class="ext dash" points="0,1352 0,655 93,655 93,0 884,0 884,655 785,655 785,1352"/><rect class="ext2" x="93" y="0" width="791" height="655" /><line class="win" x1="103" y1="560" x2="103" y2="500"/><line class="win" x1="874" y1="525" x2="874" y2="465"/><line class="gdoor" x1="874" y1="290" x2="874" y2="50"/><text class="area" x="834" y="180" style="text-anchor:end">porte de garage</text><g transform="translate(1180,-80)"><polygon points="0,-46 18,12 0,0 -18,12" class="nord"/><text class="lbl" x="0" y="48">N</text></g></svg></figure>
+  </div>
+  <p class="legend"><span class="key" style="background:var(--win)"></span>fenêtre
+    <span class="key" style="background:repeating-linear-gradient(90deg,var(--win) 0 8px,transparent 8px 11px)"></span>porte-fenêtre
+    <span class="key" style="background:var(--door)"></span>porte d'entrée / de garage</p>
+
+  <div class="info">
+    <div>
+      <h2>Surfaces habitables (permis)</h2>
+      <table>
+        <tr><th>Pièce</th><th>Niveau</th><th class="n">m²</th></tr>
+        <tr><td>Séjour / salle à manger / hall</td><td>jour</td><td class="n">33,93</td></tr>
+        <tr><td>Cuisine</td><td>jour</td><td class="n">10,84</td></tr>
+        <tr><td>Chambre 1 (ouest)</td><td>nuit</td><td class="n">9,00</td></tr>
+        <tr><td>Chambre 2 (est)</td><td>nuit</td><td class="n">9,00</td></tr>
+        <tr><td>Chambre 3 (nord-est, placard)</td><td>nuit</td><td class="n">12,12</td></tr>
+        <tr><td>Salle de bain (baignoire + douche)</td><td>nuit</td><td class="n">4,26</td></tr>
+        <tr><td>WC</td><td>nuit</td><td class="n">1,10</td></tr>
+        <tr><td>Dégagement et escalier</td><td>nuit</td><td class="n">5,42</td></tr>
+        <tr><th>Total habitable</th><td></td><th class="n">85,67</th></tr>
+      </table>
+      <h2>Annexes</h2>
+      <table>
+        <tr><td>Garage (sous-sol)</td><td class="n">44,83</td></tr>
+        <tr><td>Terrasse (sud, non couverte)</td><td class="n">30,74</td></tr>
+        <tr><td>Auvent (est, couvert)</td><td class="n">12,19</td></tr>
+      </table>
+    </div>
+    <div>
+      <h2>Niveaux et hauteurs (coupe)</h2>
+      <table>
+        <tr><td>Garage, sous l'aile nuit</td><td class="n">sol ≈ 0,00, h. 2,20 m</td></tr>
+        <tr><td>Aile jour, sur vide sanitaire</td><td class="n">+1,27, h. 2,50 m</td></tr>
+        <tr><td>Aile nuit, sur le garage</td><td class="n">+2,67, h. 2,50 m</td></tr>
+        <tr><td>Faîtage aile jour / aile nuit</td><td class="n">5,57 / 6,71 m</td></tr>
+        <tr><td>Combles</td><td>fermettes, BA13 + isolation</td></tr>
+      </table>
+      <h2>Ouvertures</h2>
+      <table>
+        <tr><th>Façade</th><th>Ouvertures</th></tr>
+        <tr><td>Sud (terrasse)</td><td>porte-fenêtre 1,20 m du séjour, fenêtre 1,00 m du séjour</td></tr>
+        <tr><td>Est (auvent)</td><td>porte d'entrée 0,90 m, porte-fenêtre 1,20 m du séjour ; fenêtres 1,20 m des chambres 2 et 3 ; porte de garage 2,40 m et fenêtre 0,60 m en bas</td></tr>
+        <tr><td>Ouest</td><td>fenêtre cuisine 1,20 m ; chambre 1 1,20 m, SdB 0,60 m, WC 0,40 m ; soupirail du garage</td></tr>
+        <tr><td>Nord</td><td>pignon aveugle</td></tr>
+      </table>
+      <h2>Terrain (plan de masse)</h2>
+      <p class="small">Accès au nord-est de la parcelle par une allée, deux places de parking en surface près de la voie. Terrain en pente douce (0,00 à +2,50 m). Réseaux EDF, eau et télécom arrivent en limite au bord de la voie. Façades en enduit gratté ton pierre, double génoise, volets bois.</p>
+    </div>
+  </div>
+</main>
+</body>
+</html>

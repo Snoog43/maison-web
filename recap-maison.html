@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Récap maison</title>
+<style>
+  :root { --bg:#faf8f4; --card:#fff; --ink:#1f1e1c; --mute:#6b6760; --line:#e2ddd3; --accent:#2f6f5e; --warn:#b5541c; --warnbg:#fbeee5; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#1a1917; --card:#24221f; --ink:#ece9e3; --mute:#a59f96; --line:#3a3732; --accent:#7cc4ad; --warn:#f0965e; --warnbg:#3a2a1f; } }
+  :root[data-theme="dark"] { --bg:#1a1917; --card:#24221f; --ink:#ece9e3; --mute:#a59f96; --line:#3a3732; --accent:#7cc4ad; --warn:#f0965e; --warnbg:#3a2a1f; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.55 system-ui, sans-serif; }
+  main { max-width:960px; margin:0 auto; padding:28px 16px 60px; }
+  h1 { font-size:24px; margin:0 0 4px; }
+  .sub { color:var(--mute); margin:0 0 22px; }
+  nav { display:flex; flex-wrap:wrap; gap:6px 14px; margin:0 0 24px; font-size:14px; }
+  nav a { color:var(--accent); text-decoration:none; }
+  nav a:hover { text-decoration:underline; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin:0 0 16px; }
+  h2 { font-size:17px; margin:0 0 10px; color:var(--accent); }
+  h3 { font-size:15px; margin:14px 0 6px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  td, th { text-align:left; vertical-align:top; padding:5px 8px 5px 0; border-bottom:1px solid var(--line); }
+  td:first-child { color:var(--mute); width:38%; }
+  tr:last-child td { border-bottom:0; }
+  .n { font-variant-numeric:tabular-nums; }
+  ul { margin:6px 0; padding-left:20px; }
+  li { margin:3px 0; }
+  .todo li { margin:6px 0; }
+  .tag { display:inline-block; font-size:12px; font-weight:600; padding:1px 7px; border-radius:20px; margin-right:6px; }
+  .urgent { background:var(--warnbg); color:var(--warn); }
+  .soon { background:var(--line); color:var(--ink); }
+  .note { color:var(--mute); font-size:13px; }
+  .alert { background:var(--warnbg); border-left:4px solid var(--warn); padding:8px 12px; border-radius:4px; margin:8px 0; }
+  .grid2 { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
+  .grid2 section { margin:0; }
+  .carnet td:first-child { width:auto; color:var(--ink); }
+  .carnet th { font-size:12px; color:var(--mute); font-weight:600; }
+  .carnet input[type=date] { font:inherit; font-size:13px; padding:3px 6px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--ink); cursor:pointer; }
+  .carnet button { font:inherit; font-size:12px; padding:3px 9px; border:1px solid var(--line); border-radius:6px; background:transparent; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .carnet button:hover { border-color:var(--accent); }
+  .st { font-size:12px; font-weight:600; padding:1px 7px; border-radius:20px; white-space:nowrap; }
+  .st.late { background:var(--warnbg); color:var(--warn); } .st.ok { background:var(--line); } .st.unk { color:var(--mute); }
+  .carnet small { display:block; color:var(--mute); font-size:12px; }
+  @media (max-width:640px) { .carnet tr { display:grid; grid-template-columns:1fr auto; gap:4px 8px; padding:8px 0; border-bottom:1px solid var(--line); } .carnet td { border:0; padding:0; } .carnet thead { display:none; } }
+  @media print { body { background:#fff; } section { break-inside:avoid; } nav { display:none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Maison du 1 route de la Croix</h1>
+  <p class="sub">Saint-Julien-des-Points (48160), Lozère. Récapitulatif tiré de l'acte de vente du 30 juillet 2026 et de ses annexes (245 pages).</p>
+
+  <nav>
+    <a href="#todo">À faire</a><a href="#carnet">Carnet d'entretien</a><a href="#achat">Achat</a><a href="#bien">Le bien</a><a href="#terrain">Terrain et urbanisme</a>
+    <a href="#energie">Énergie</a><a href="#travaux">Travaux conseillés</a><a href="#equip">Équipements</a>
+    <a href="#assainissement">Assainissement</a><a href="#diag">Diagnostics</a><a href="#risques">Risques</a><a href="#histo">Historique</a><a href="#contacts">Contacts</a>
+  </nav>
+
+  <section id="todo">
+    <h2>À faire</h2>
+    <ul class="todo">
+      <li><span class="tag urgent">Avant l'hiver</span><strong>Faire vérifier l'insert à bois avant de l'allumer.</strong> Au ramonage du 15/05/2026, le ramoneur a noté une installation non conforme aux DTU 24.1 et 24.2 : foyer détérioré, trappe ou registre qui ne fonctionne pas, souche préfabriquée trop basse, joints et vitre moyens, un peu de bistre (dépôt goudronneux) dans le conduit.</li>
+      <li><span class="tag urgent">Obligatoire</span><strong>Installer au moins un détecteur de fumée</strong> (norme NF EN 14604). L'acte dit que la maison n'en a aucun.</li>
+      <li><span class="tag urgent">Obligatoire</span><strong>Contacter le SPANC</strong> : c'est imposé au nouvel acquéreur (04 66 45 90 29, spanc@cevennes-mont-lozere.fr).</li>
+      <li><span class="tag urgent">Conseillé</span><strong>Faire vidanger la fosse toutes eaux</strong> par un vidangeur agréé. Le SPANC le recommande. La dernière vidange déclarée date de novembre 2023 (entreprise Tabusse), sans facture.</li>
+      <li><span class="tag soon">Sécurité</span><strong>Faire passer un électricien</strong> pour corriger les anomalies du diagnostic électrique : protection des circuits mal adaptée à la section des fils, conducteurs sans protection mécanique, matériel vétuste, prise de terre à vérifier.</li>
+      <li><span class="tag soon">Suivi</span><strong>Surveiller les fissures</strong> signalées par l'audit. Il conseille de poser des jauges (type Saugnac) et de faire faire un diagnostic par un ingénieur structure.</li>
+      <li><span class="tag soon">Chaque année</span><strong>Débroussailler</strong> : la maison est dans la zone des obligations légales de débroussaillement (OLD). La charge est désormais la tienne.</li>
+      <li><span class="tag soon">Chaque année</span><strong>Faire ramoner</strong> par un professionnel et garder le certificat (l'assurance le demandera).</li>
+      <li><span class="tag soon">Impôts</span><strong>Déclarer l'occupation du logement</strong> (résidence principale ou secondaire) sur impots.gouv, avant le 1er juillet. Sinon amende de 150 €.</li>
+      <li><span class="tag soon">À vérifier</span><strong>Inspecter les « combles 2 »</strong> : le diagnostiqueur termites n'a pas pu y entrer faute de trappe de visite.</li>
+    </ul>
+  </section>
+
+  <section id="carnet">
+    <h2>Carnet d'entretien</h2>
+    <p class="note">Dates de départ tirées de l'acte. Quand tu fais une tâche, clique « Fait aujourd'hui » ou corrige la date : c'est retenu dans ce navigateur.</p>
+    <table class="carnet"><thead><tr><th>Tâche</th><th>Dernière fois</th><th>Prochaine</th><th></th></tr></thead><tbody id="carnet-rows"></tbody></table>
+  </section>
+
+  <div class="grid2">
+  <section id="achat">
+    <h2>L'achat</h2>
+    <table>
+      <tr><td>Acquéreurs</td><td>Duncan GEORGES et Alicia ARNAUD, mariés sous la communauté d'acquêts. Le bien appartient à la communauté.</td></tr>
+      <tr><td>Vendeurs</td><td>Guilhem LAURENS et Maurine PAPILLON, moitié chacun</td></tr>
+      <tr><td>Promesse de vente</td><td>21/04/2026, Me Talagrand-Craboledda (Alès)</td></tr>
+      <tr><td>Acte de vente</td><td>30/07/2026, Me Bourely (La Grand-Combe), avec Me Talagrand et Me Rougny (Chorges)</td></tr>
+      <tr><td>Prix</td><td class="n">165 000 €, payé comptant (dont 8 250 € d'indemnité d'immobilisation)</td></tr>
+      <tr><td>Droits de mutation</td><td class="n">9 581 € + 165 € de contribution de sécurité immobilière</td></tr>
+      <tr><td>Meubles</td><td>Aucun : la vente ne comprend pas de mobilier</td></tr>
+      <tr><td>Propriété et jouissance</td><td>À partir du 30/07/2026, maison libre</td></tr>
+      <tr><td>Hypothèque du vendeur</td><td>Prêt La Banque Postale, levé grâce au prix de vente (143 970,17 €)</td></tr>
+      <tr><td>Garantie des vices cachés</td><td>Exclue (vendeurs non professionnels), sauf si le vendeur connaissait le vice</td></tr>
+    </table>
+  </section>
+
+  <section id="bien">
+    <h2>Le bien</h2>
+    <table>
+      <tr><td>Type</td><td>Maison individuelle avec terrain attenant</td></tr>
+      <tr><td>Construction</td><td>Permis PC4816305C0007 du 17/10/2005, achèvement le 01/11/2006, conformité le 12/12/2006</td></tr>
+      <tr><td>Surfaces du permis</td><td class="n">SHOB 203 m², SHON 101 m²</td></tr>
+      <tr><td>Surface habitable (DPE)</td><td class="n">82,75 m², hauteur sous plafond 2,50 m</td></tr>
+      <tr><td>Pièces principales</td><td>4 pièces principales, dont 3 chambres (fiche SPANC)</td></tr>
+      <tr><td>Rez-de-chaussée</td><td>Entrée, séjour, cuisine, buanderie, garage, vide sanitaire</td></tr>
+      <tr><td>Étage</td><td>Palier, salle de bain, WC, chambres 1 à 3, combles 1 et 2</td></tr>
+      <tr><td>Murs</td><td>Parpaings creux de 20 cm avec doublage</td></tr>
+      <tr><td>Planchers</td><td>Poutrelles béton et hourdis, non isolés (sur garage et vide sanitaire)</td></tr>
+      <tr><td>Toiture</td><td>Charpente bois, tuiles. Plafond en plaques de plâtre isolé (entre 2006 et 2012), combles très ventilés</td></tr>
+      <tr><td>Sols et finitions</td><td>Carrelage, murs et plafonds en plâtre peint, portes intérieures en bois</td></tr>
+      <tr><td>Menuiseries</td><td>Fenêtres PVC double vitrage argon 14 mm, volets battants bois. Une porte bois vitrée et une porte bois pleine (vers le garage)</td></tr>
+    </table>
+    <p class="note">Le DPE ne compte qu'un niveau chauffé, alors que les diagnostics termites et l'audit placent les chambres « au 1er étage ». Aucun plan intérieur n'est joint au dossier.</p>
+  </section>
+  </div>
+
+  <section id="terrain">
+    <h2>Terrain, accès et urbanisme</h2>
+    <table>
+      <tr><td>Cadastre</td><td>Section A n° 959, 2 317 m² (23 a 17 ca)</td></tr>
+      <tr><td>Accès</td><td>Par la route de la Croix (parcelle A 785, communale)</td></tr>
+      <tr><td>Servitude</td><td>Droit de passage piétons et véhicules sur la parcelle A 785 vers le chemin communal (acte Tabusse du 10/01/1986)</td></tr>
+      <tr><td>Document d'urbanisme</td><td>Carte communale. Parcelle en zone U (constructible) pour partie et en zone N (naturelle et agricole, non constructible) pour partie</td></tr>
+      <tr><td>Certificat d'urbanisme</td><td>CUa 048 163 26 B0003 du 18/06/2026. Aucune servitude d'utilité publique</td></tr>
+      <tr><td>SCOT</td><td>SCOT du Pays des Cévennes</td></tr>
+      <tr><td>Coordonnées</td><td>Latitude 44,25803, longitude 3,9664. Altitude d'environ 495 m</td></tr>
+      <tr><td>Préemption</td><td>La commune et la SAFER ont renoncé à préempter</td></tr>
+    </table>
+  </section>
+
+  <div class="grid2">
+  <section id="energie">
+    <h2>Énergie</h2>
+    <table>
+      <tr><td>DPE</td><td>N° ADEME 2548E2533516Y, établi le 01/08/2025, valable jusqu'au 31/07/2035</td></tr>
+      <tr><td>Étiquette actuelle</td><td><strong>E</strong>, 251 kWhEP/m²/an (282 avant la révision de 2026), juste à la limite de la classe D</td></tr>
+      <tr><td>Climat</td><td><strong>B</strong>, 8 kg CO₂/m²/an</td></tr>
+      <tr><td>Consommation</td><td class="n">23 342 kWh d'énergie primaire par an (15 078 kWh d'énergie finale)</td></tr>
+      <tr><td>Coût estimé</td><td class="n">1 460 à 2 030 € par an (chauffage, eau chaude, éclairage, auxiliaires)</td></tr>
+      <tr><td>Confort d'été</td><td>Bon</td></tr>
+      <tr><td>Location</td><td>Une maison classée E peut être louée jusqu'en 2034, date d'interdiction de cette classe</td></tr>
+    </table>
+  </section>
+
+  <section id="equip">
+    <h2>Équipements</h2>
+    <table>
+      <tr><td>Chauffage 1</td><td>Panneaux rayonnants électriques NF, sans programmation</td></tr>
+      <tr><td>Chauffage 2</td><td>Insert (foyer fermé) à bois, posé à partir de 2005, sans label Flamme verte. Conduit de raccordement en inox</td></tr>
+      <tr><td>Eau chaude</td><td>Ballon électrique vertical de 200 L</td></tr>
+      <tr><td>Ventilation</td><td>Naturelle, par conduits (pas de VMC)</td></tr>
+      <tr><td>Climatisation</td><td>Aucune</td></tr>
+      <tr><td>Gaz</td><td>Aucun</td></tr>
+      <tr><td>Absents</td><td>Pas de piscine, de panneaux solaires, de puits ou forage, ni de récupération d'eau de pluie</td></tr>
+      <tr><td>Électricité</td><td>Différentiel 30 mA sur toute l'installation, prises à obturateur. Plusieurs anomalies (voir Diagnostics)</td></tr>
+    </table>
+  </section>
+  </div>
+
+  <section id="travaux">
+    <h2>Travaux conseillés par l'audit énergétique</h2>
+    <p>Audit n° A25480271309U du 01/08/2025, valable jusqu'au 31/07/2030. Les montants sont des estimations TTC, pas des devis.</p>
+    <table>
+      <tr><td>Rénovation en une fois</td><td class="n">≈ 34 400 €. Passe de 251 à 62 kWhEP/m²/an (−75 %), soit la classe A. Facture estimée : 550 à 810 € par an</td></tr>
+      <tr><td>Par étapes, étape 1</td><td class="n">≈ 28 800 € : isolation de la toiture, menuiseries, pompe à chaleur air/air, VMC. Passe à 100 kWhEP/m²/an</td></tr>
+      <tr><td>Par étapes, étape 2</td><td class="n">≈ 5 600 € : eau chaude (chauffe-eau thermodynamique). Passe à 62 kWhEP/m²/an</td></tr>
+    </table>
+    <h3>Détail des postes</h3>
+    <ul>
+      <li>Isolation des plafonds : 35 cm de ouate de cellulose, environ 3 990 €</li>
+      <li>Remplacement des portes et menuiseries (Ud 1,3) : environ 4 880 € et 10 580 €</li>
+      <li>Pompe à chaleur air/air réversible (SCOP 3,9) : environ 8 730 €, avec une étude de dimensionnement préalable</li>
+      <li>VMC hygroréglable type B et meilleure étanchéité à l'air, avec une tuile à douille pour l'extraction</li>
+      <li>Échafaudage : environ 7 140 €. Certains travaux demandent une autorisation d'urbanisme</li>
+      <li>Travaux de base du DPE (régulation du chauffage et VMC) : 1 800 à 2 600 €</li>
+    </ul>
+    <p class="note">Il existe des aides, par exemple MaPrimeRénov' et les primes CEE. France Rénov' conseille gratuitement au 0 808 800 700.</p>
+  </section>
+
+  <div class="grid2">
+  <section id="assainissement">
+    <h2>Assainissement (non collectif)</h2>
+    <table>
+      <tr><td>Contrôle SPANC</td><td>24/03/2026 (dossier STJ_042) : <strong>conforme</strong></td></tr>
+      <tr><td>Installation</td><td>Posée entre 2006 et 2007</td></tr>
+      <tr><td>Fosse toutes eaux</td><td>3 m³, préfiltre intégré, pas de bac à graisse</td></tr>
+      <tr><td>Traitement</td><td>Lit d'épandage de 30 m² maximum, infiltration dans le sol. 4 regards</td></tr>
+      <tr><td>Capacité</td><td>4 équivalents-habitants</td></tr>
+      <tr><td>Terrain</td><td>Pente faible, sol de terre et schiste, perméabilité bonne</td></tr>
+      <tr><td>Eaux pluviales</td><td>Récupérateurs et ruissellement en surface</td></tr>
+      <tr><td>Remarques</td><td>Pas de ventilation en aval de la fosse : en ajouter une (diamètre 100) en cas d'odeurs. Garder tous les regards accessibles</td></tr>
+    </table>
+  </section>
+
+  <section id="diag">
+    <h2>Diagnostics</h2>
+    <table>
+      <tr><td>Termites (16/03/2026)</td><td>Aucun indice d'infestation. Les « combles 2 » n'ont pas été visités (pas de trappe)</td></tr>
+      <tr><td>Électricité (24/07/2025)</td><td>Anomalies : protection des circuits mal adaptée à la section des conducteurs, conducteurs sans protection mécanique, matériel vétuste. Prise de terre et liaisons équipotentielles non vérifiables</td></tr>
+      <tr><td>Plomb et amiante</td><td>Non concernée (construction postérieure à 1997)</td></tr>
+      <tr><td>Mérule</td><td>Hors zone à risque, aucune connue</td></tr>
+      <tr><td>Fissures (audit)</td><td>Présentes : à surveiller, avec diagnostic par un ingénieur structure</td></tr>
+      <tr><td>Ramonage (15/05/2026)</td><td>Insert non conforme (voir À faire)</td></tr>
+    </table>
+    <p class="note">Diagnostics réalisés par SAS DEA (dossier LAURENS20293).</p>
+  </section>
+  </div>
+
+  <section id="risques">
+    <h2>Risques naturels et environnement</h2>
+    <table>
+      <tr><td>Plans de prévention</td><td>Aucun : ni risques naturels, ni miniers, ni technologiques</td></tr>
+      <tr><td>Séisme</td><td>Zone 2 (faible)</td></tr>
+      <tr><td>Radon</td><td>Potentiel de catégorie 2 (faible, avec des facteurs aggravants possibles). Aérer suffit en général</td></tr>
+      <tr><td>Inondation</td><td>Atlas des zones inondables des Gardons sur la commune. L'exposition de la parcelle n'est pas précisée</td></tr>
+      <tr><td>Argiles (retrait-gonflement)</td><td>Aléa résiduel</td></tr>
+      <tr><td>Feux de forêt</td><td>Zone d'obligations légales de débroussaillement</td></tr>
+      <tr><td>Mines</td><td>Hors concessions de Charbonnages de France (courrier BRGM du 30/03/2026)</td></tr>
+      <tr><td>Pollution des sols</td><td>Aucune (bases BASOL, BASIAS et ICPE)</td></tr>
+      <tr><td>Sinistres indemnisés</td><td>Aucun connu</td></tr>
+    </table>
+  </section>
+
+  <div class="grid2">
+  <section id="histo">
+    <h2>Historique</h2>
+    <ul>
+      <li><strong>1986</strong> : Rose Palermo achète le terrain à la famille Polge-Jallaguier pour 10 000 F.</li>
+      <li><strong>2005</strong> : Daniel et Chantal Lesieur achètent le terrain (16/11/2005, Me Foucher, Alès) et font construire.</li>
+      <li><strong>2006</strong> : fin des travaux et conformité.</li>
+      <li><strong>2023</strong> : décès de Daniel Lesieur. Guilhem Laurens et Maurine Papillon achètent la maison 186 400 € (04/08/2023).</li>
+      <li><strong>2026</strong> : vitre de la fenêtre de cuisine changée (AB Fenêtre, 27/07), chasse d'eau et flotteur du WC remplacés après une fuite (LGR Elec Frères, 29/07). Vente le 30/07.</li>
+    </ul>
+  </section>
+
+  <section id="contacts">
+    <h2>Contacts utiles</h2>
+    <table>
+      <tr><td>SPANC</td><td>Communauté de communes des Cévennes au Mont Lozère, 04 66 45 90 29, spanc@cevennes-mont-lozere.fr</td></tr>
+      <tr><td>Ramoneur</td><td>Lopez Service, La Grand-Combe, 06 77 47 47 83</td></tr>
+      <tr><td>Électricien et plombier</td><td>LGR Elec Frères, Portes, 06 68 81 62 10</td></tr>
+      <tr><td>Menuiseries</td><td>AB Fenêtre, Les Salles-du-Gardon, 04 66 54 47 11</td></tr>
+      <tr><td>Diagnostiqueur</td><td>SAS DEA, 04 67 06 02 70</td></tr>
+      <tr><td>Notaire (vendeur)</td><td>Me Talagrand, Alès, 04 66 52 41 03</td></tr>
+      <tr><td>Plans de la maison</td><td>DDT de la Lozère ou Archives départementales (PC4816305C0007)</td></tr>
+    </table>
+  </section>
+  </div>
+</main>
+<script>
+// [tâche, détail, intervalle en mois, dernière date connue (AAAA-MM-JJ) ou '', échéance forcée]
+const TASKS = [
+  ['Ramonage du conduit de l\'insert', 'Lopez Service, 06 77 47 47 83. Garder le certificat pour l\'assurance. Le règlement sanitaire peut en demander deux par an pour le bois.', 12, '2026-05-15'],
+  ['Vidange de la fosse toutes eaux', 'Vidangeur agréé. Le SPANC conseille de la faire dès l\'arrivée ; la dernière déclarée date de novembre 2023, sans facture.', 48, '2023-11-15', 'now'],
+  ['Contrôle du préfiltre et des regards de la fosse', 'Rincer le préfiltre, vérifier que les 4 regards restent accessibles.', 12, ''],
+  ['Contrôle SPANC', 'Rapport du 24/03/2026 : installation conforme. La commune fixe la périodicité (10 ans au plus).', 120, '2026-03-24'],
+  ['Débroussaillement (OLD)', 'Obligation légale, à faire avant l\'été.', 12, ''],
+  ['Chauffe-eau électrique 200 L', 'Vidange partielle, contrôle de l\'anode et du groupe de sécurité.', 24, ''],
+  ['Gouttières et toiture', 'Vider les gouttières après la chute des feuilles, regarder les tuiles.', 12, ''],
+  ['Détecteur de fumée', 'À installer (obligatoire), puis tester le bouton tous les 6 mois.', 6, ''],
+  ['Relevé des jauges de fissures', 'Une fois les jauges posées, noter l\'écart chaque trimestre.', 3, ''],
+];
+const KEY = 'carnet-maison', today = new Date().toISOString().slice(0, 10);
+let saved = {}; try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+const fr = d => d ? new Date(d + 'T12:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+function next(d, m) { const t = new Date(d + 'T12:00'); t.setMonth(t.getMonth() + m); return t.toISOString().slice(0, 10); }
+const per = m => m % 12 ? `tous les ${m} mois` : m === 12 ? 'chaque année' : `tous les ${m / 12} ans`;
+function render() {
+  const tb = document.getElementById('carnet-rows'); tb.innerHTML = '';
+  TASKS.forEach(([name, info, m, last0, force], i) => {
+    const last = saved[i] ?? last0, due = last ? next(last, m) : '';
+    const late = (force === 'now' && !saved[i]) || (due && due <= today);
+    const st = !last ? '<span class="st unk">date inconnue</span>' : late ? `<span class="st late">${force === 'now' && !saved[i] ? 'à faire maintenant' : 'en retard · ' + fr(due)}</span>` : `<span class="st ok">${fr(due)}</span>`;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td><strong>${name}</strong><small>${per(m)} · ${info}</small></td><td><input type="date" value="${last}" max="${today}" aria-label="Dernière fois : ${name}"></td><td>${st}</td><td><button>Fait aujourd'hui</button></td>`;
+    const set = v => { if (v) saved[i] = v; else delete saved[i]; try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {} render(); };
+    tr.querySelector('input').addEventListener('change', e => set(e.target.value));
+    tr.querySelector('button').addEventListener('click', () => set(today));
+    tb.appendChild(tr);
+  });
+}
+render();
+</script>
+</body>
+</html>

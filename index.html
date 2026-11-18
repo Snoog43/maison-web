@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma maison</title>
+<style>
+  :root { --bg:#faf7f3; --card:#fff; --ink:#24201c; --mute:#6e665d; --line:#e6ddd2; --accent:#b4563a; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#1b1916; --card:#25221e; --ink:#eee9e2; --mute:#a69e94; --line:#3a352f; --accent:#ec9474; } }
+  :root[data-theme="dark"] { --bg:#1b1916; --card:#25221e; --ink:#eee9e2; --mute:#a69e94; --line:#3a352f; --accent:#ec9474; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.55 system-ui, sans-serif; }
+  main { max-width:1040px; margin:0 auto; padding:32px 16px 60px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  .sub { color:var(--mute); margin:0 0 26px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:34px; }
+  .card { display:block; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; color:inherit; text-decoration:none; transition:border-color .15s, transform .15s; }
+  .card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .card b { display:block; font-size:17px; margin-bottom:4px; color:var(--accent); }
+  .card span { color:var(--mute); font-size:14px; }
+  h2 { font-size:19px; margin:0 0 12px; }
+  .stats { display:flex; flex-wrap:wrap; gap:8px 22px; margin:0 0 30px; color:var(--mute); font-size:14px; }
+  .stats strong { color:var(--ink); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:8px; }
+  .grid button { padding:0; border:0; background:none; cursor:zoom-in; border-radius:8px; overflow:hidden; aspect-ratio:4/3; }
+  .grid img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .2s; }
+  .grid button:hover img { transform:scale(1.04); }
+  .lb { position:fixed; inset:0; background:rgba(0,0,0,.88); display:flex; align-items:center; justify-content:center; }
+  .lb[hidden] { display:none; }
+  .lb img { max-width:calc(100% - 120px); max-height:calc(100% - 40px); border-radius:6px; }
+  .lb button { position:absolute; background:rgba(255,255,255,.14); color:#fff; border:0; border-radius:50%; width:48px; height:48px; font-size:24px; cursor:pointer; }
+  .lb button:hover { background:rgba(255,255,255,.3); }
+  #prev { left:12px; } #next { right:12px; } #close { top:12px; right:12px; }
+  @media (max-width:600px) { .lb img { max-width:100%; } #prev, #next { bottom:16px; top:auto; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ma maison</h1>
+  <p class="sub">Plans, maquette 3D du terrain et photos.</p>
+  <div class="cards">
+    <a class="card" href="plan-3d.html"><b>Maquette 3D</b><span>Maison, terrain, meubles, visite à la première personne, mesure, domotique.</span></a>
+    <a class="card" href="plan-maison.html"><b>Plan 2D</b><span>Les trois niveaux avec cotes et surfaces.</span></a>
+    <a class="card" href="recap-maison.html"><b>Récapitulatif</b><span>Surfaces, permis, réseaux, points à vérifier.</span></a>
+  </div>
+  <div class="stats">
+    <span>Habitable <strong>85,7 m²</strong></span><span>Garage <strong>44,8 m²</strong></span><span>Terrasse <strong>30,7 m²</strong></span><span>Auvent <strong>12,2 m²</strong></span><span>Terrain <strong>2 317 m²</strong></span>
+  </div>
+  <h2>Photos</h2>
+  <div class="grid" id="grid"></div>
+</main>
+<div class="lb" id="lb" hidden>
+  <img id="big" alt="">
+  <button id="prev" aria-label="Photo précédente">‹</button>
+  <button id="next" aria-label="Photo suivante">›</button>
+  <button id="close" aria-label="Fermer">×</button>
+</div>
+<script>
+const N = 21, grid = document.getElementById('grid'), lb = document.getElementById('lb'), big = document.getElementById('big');
+const nn = i => String(i + 1).padStart(2, '0');
+let cur = 0;
+for (let i = 0; i < N; i++) {
+  const b = document.createElement('button');
+  b.innerHTML = `<img src="photos/mini-${nn(i)}.jpg" alt="Photo ${i + 1}" loading="lazy">`;
+  b.onclick = () => show(i); grid.appendChild(b);
+}
+function show(i) { cur = (i + N) % N; big.src = `photos/photo-${nn(cur)}.jpg`; big.alt = `Photo ${cur + 1}`; lb.hidden = false; }
+document.getElementById('prev').onclick = e => { e.stopPropagation(); show(cur - 1); };
+document.getElementById('next').onclick = e => { e.stopPropagation(); show(cur + 1); };
+document.getElementById('close').onclick = () => lb.hidden = true;
+lb.onclick = e => { if (e.target === lb) lb.hidden = true; };
+addEventListener('keydown', e => {
+  if (lb.hidden) return;
+  if (e.key === 'Escape') lb.hidden = true;
+  if (e.key === 'ArrowLeft') show(cur - 1);
+  if (e.key === 'ArrowRight') show(cur + 1);
+});
+</script>
+</body>
+</html>
